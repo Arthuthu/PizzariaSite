@@ -1,0 +1,20 @@
+﻿@page
+@using PizzariaLibrary.Repositories
+@inject IPizzaRepository pizza
+@model Pizzaria.Pages.CardapioModel
+
+<div class="cardapio">
+	@foreach (var item in pizza.Get())
+	{
+		<div class="pizza-information">@item.Nome</div>
+		<div class="pizza-information">@item.Descricao</div>
+		<div class="pizza-information">@item.Tipo</div>
+		<div class="pizza-information">@item.Valor</div>
+	}
+</div>
+
+
+@{
+
+}
+

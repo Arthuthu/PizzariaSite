@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Pizzas]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Nome] NVARCHAR(50) NOT NULL, 
+    [Descricao] NVARCHAR(500) NOT NULL, 
+    [Tipo] NVARCHAR(20) NOT NULL, 
+    [Valor] DECIMAL(18, 2) NOT NULL,
+
+)

@@ -1,7 +1,10 @@
+using PizzariaLibrary.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<IPizzaRepository, PizzaRepository>();
 
 var app = builder.Build();
 

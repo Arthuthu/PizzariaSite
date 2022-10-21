@@ -14,5 +14,18 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+}
+
+/* Cardapio */
+
+.cardapio {
+    display: flex;
+    flex-direction: column;
+    border-style: groove;
+}
+
+.pizza-information {
+    font-size: 2rem;
+    font-weight: bold;
 }

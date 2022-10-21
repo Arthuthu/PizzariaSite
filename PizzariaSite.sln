@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzaria", "Pizzaria\Pizzaria.csproj", "{40A0C0DF-731C-4C4E-AA9C-1F67B3597128}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizzaria", "Pizzaria\Pizzaria.csproj", "{40A0C0DF-731C-4C4E-AA9C-1F67B3597128}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzariaLibrary", "PizzariaLibrary\PizzariaLibrary.csproj", "{FBF38BFF-1D6B-4923-A982-2161D10896EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzariaLibrary", "PizzariaLibrary\PizzariaLibrary.csproj", "{FBF38BFF-1D6B-4923-A982-2161D10896EB}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PizzariaDatabase", "PizzariaDatabase\PizzariaDatabase.sqlproj", "{15559A8A-9D42-48CA-8FE2-BE90E53E5461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,12 @@ Global
 		{FBF38BFF-1D6B-4923-A982-2161D10896EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBF38BFF-1D6B-4923-A982-2161D10896EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBF38BFF-1D6B-4923-A982-2161D10896EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15559A8A-9D42-48CA-8FE2-BE90E53E5461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15559A8A-9D42-48CA-8FE2-BE90E53E5461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15559A8A-9D42-48CA-8FE2-BE90E53E5461}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{15559A8A-9D42-48CA-8FE2-BE90E53E5461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15559A8A-9D42-48CA-8FE2-BE90E53E5461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15559A8A-9D42-48CA-8FE2-BE90E53E5461}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
