@@ -3,13 +3,15 @@
 @inject IPizzaRepository pizza
 @model Pizzaria.Pages.CardapioModel
 
-<div class="cardapio">
+<div class="row" id="cardapio">
 	@foreach (var item in pizza.Get())
 	{
-		<div class="pizza-information">@item.Nome</div>
-		<div class="pizza-information">@item.Descricao</div>
-		<div class="pizza-information">@item.Tipo</div>
-		<div class="pizza-information">@item.Valor</div>
+		<div class="col-md-3" id="pizza-box">
+			<div class="pizza-nome">@item.Nome</div>
+			<div class="pizza-tipo">@item.Tipo</div>
+			<div class="pizza-descricao">@item.Descricao</div>
+			<div class="pizza-valor">R$@item.Valor</div>
+		</div>
 	}
 </div>
 
