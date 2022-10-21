@@ -3,6 +3,13 @@
 @inject IPizzaRepository pizza
 @model Pizzaria.Pages.CardapioModel
 
+<div>
+	<a asp-page="/Create" class="criar-pizza-button">
+		Criar nova pizza
+	</a>
+</div>
+
+
 <div class="row" id="cardapio">
 	@foreach (var item in pizza.Get())
 	{
@@ -16,7 +23,8 @@
 </div>
 
 
-@{
 
+@{
+	
 }
 

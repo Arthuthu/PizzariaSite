@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Pizzaria.Pages.Cardapio
+namespace Pizzaria.Pages
 {
     public class CreateModel : PageModel
     {
