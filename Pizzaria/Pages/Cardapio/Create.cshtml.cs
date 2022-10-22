@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using PizzariaLibrary.Models;
 using PizzariaLibrary.Repositories;
 
 namespace Pizzaria.Pages.Cardapio
@@ -19,16 +20,16 @@ namespace Pizzaria.Pages.Cardapio
         {
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost(Pizza pizza)
         {
             if (ModelState.IsValid == false)
             {
                 return Page();
             }
 
-            //_pizzaRepository.Create();
+            _pizzaRepository.Create(pizza);
 
-            _logger.LogInformation("The create pizza method was successfull");
+            _logger.LogInformation("The pizza was successfully created");
 
             return RedirectToPage("./Index");
         }
