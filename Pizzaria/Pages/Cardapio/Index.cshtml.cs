@@ -5,8 +5,16 @@ namespace Pizzaria.Pages
 {
     public class CardapioModel : PageModel
     {
+        private readonly ILogger<CardapioModel> _logger;
+
+        public CardapioModel(ILogger<CardapioModel> logger)
+        {
+            _logger = logger;
+        }
+
         public void OnGet()
         {
+            _logger.LogInformation("Loading the Cardapio page");
         }
     }
 }
