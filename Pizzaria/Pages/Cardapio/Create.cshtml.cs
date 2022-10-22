@@ -7,10 +7,12 @@ namespace Pizzaria.Pages.Cardapio
     public class CreateModel : PageModel
     {
         private readonly ILogger<CreateModel> _logger;
+        private readonly IPizzaRepository _pizzaRepository;
 
-        public CreateModel(ILogger<CreateModel> logger)
+        public CreateModel(ILogger<CreateModel> logger, IPizzaRepository pizzaRepository)
         {
             _logger = logger;
+            _pizzaRepository = pizzaRepository;
         }
 
         public void OnGet()
@@ -23,6 +25,8 @@ namespace Pizzaria.Pages.Cardapio
             {
                 return Page();
             }
+
+            //_pizzaRepository.Create();
 
             _logger.LogInformation("The create pizza method was successfull");
 
