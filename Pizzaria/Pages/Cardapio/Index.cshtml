@@ -6,17 +6,30 @@
 <div class="row" id="cardapio">
 	@foreach (var item in pizza.Get())
 	{
-		<div class="col-md-3" id="pizza-box">
+		<div class="col-md-4" id="pizza-box">
 			<div class="pizza-nome">@item.Nome</div>
 			<div class="pizza-tipo">@item.Tipo</div>
 			<div class="pizza-descricao">@item.Descricao</div>
 			<div class="pizza-valor">R$@item.Valor</div>
+			<div class="crud-pizza-button-div">
+				<a asp-page="/Cardapio/Update/@item.Id" class="crud-pizza-button">
+					Atualizar
+				</a>
+				<a asp-page="/Cardapio/Details/@item.Id" class="crud-pizza-button">
+					Detalhes
+				</a>
+				<a asp-page="/Cardapio/Delete/@item.Id" class="crud-pizza-button">
+					Deletar
+				</a>
+			</div>
 		</div>
+
+
 	}
 </div>
 
-<div class="criar-pizza-button-div">
-	<a asp-page="/Cardapio/Create" class="criar-pizza-button">
+<div class="crud-pizza-button-div">
+	<a asp-page="/Cardapio/Create" class="crud-pizza-button">
 		Criar nova pizza
 	</a>
 </div>
