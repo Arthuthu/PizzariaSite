@@ -4,7 +4,65 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="descricao-div">
+    <div class="descricao-imagem">
+        <img src="~/imgs/pizza1.jpg" />
+    </div>
+    <div class="descricao-texto-div">
+        <div class="descricao-texto-titulo">
+            A PIZZARIA MAIS TRADICIONAL DO BRASIL
+        </div>
+        <div class="descricao-texto-paragrafo">
+            <p>
+                Fundada em 1989 a nossa pizzaria é a mais antiga e tradicional do Brasil.
+            </p>
+            <p>
+                Como manda a tradição, fazemos nossas pizzas no forno a lenha,
+                com massa de fermentação lenta e cobertas com ingredientes de qualidade garantindo uma pizza leve,
+                saborosa e tradicional.
+            </p>
+        </div>
+    </div>
 </div>
+
+<div class="index-cardapio-div">
+    <div class="index-cardapio-div-paragrafo">
+        <p>
+            Verifique o cardápio e fique por dentro das promoções.
+        </p>
+    </div>
+    <div class="index-cardapio-button-div">
+        <a asp-page="/Cardapio/Index" class="crud-pizza-button">
+            Cardápio
+        </a>
+    </div>
+</div>
+
+
+<div class="descricao-div">
+    <div class="descricao-texto-div">
+        <div class="descricao-texto-titulo">
+            VENHA COMER EM NOSSO SALÃO
+        </div>
+        <div class="descricao-texto-paragrafo">
+            <p>
+                Convide a família e os amigos para saborear nossas pizzas fresquinhas direto do forno a lenha para sua mesa.
+            </p>
+        </div>
+    </div>
+    <div class="descricao-imagem">
+        <img src="~/imgs/googlemaps.png" />
+    </div>
+</div>
+
+<footer>
+    <div class="footer-descricao-div">
+        <div class="footer-descricao-texto">
+            SIGA-NOS NO INSTAGRAM E FIQUE POR DENTRO DAS PROMOÇÕES E NOVIDADES
+        </div>
+        <div class="icone-instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+    </div>
+</footer>
+

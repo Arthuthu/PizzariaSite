@@ -27,18 +27,16 @@
         </nav>
     </header>
     <div>
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer>
-        &copy; 2022 - Pizzaria - <a asp-area="" asp-page="/Privacy">Privacy</a>
-    </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/a077060aed.js" crossorigin="anonymous"></script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
