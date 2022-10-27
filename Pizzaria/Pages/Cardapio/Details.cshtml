@@ -1,18 +1,18 @@
 ﻿@page
 @using PizzariaLibrary.Repositories
 @inject IPizzaRepository pizza
+
 @model Pizzaria.Pages.Cardapio.DetailsModel
 
 @{
-
-    var item = pizza.Search(1);
+	string page = HttpContext.Request.Query["page"].ToString();
 }
 
-<div class="details-information-div">
-	<div class="pizza-nome">@item.Nome</div>
+@*<div class="details-information-div">
+	<div class="pizza-nome">@Model.Pizza.Id</div>
 	<div class="pizza-tipo">@item.Tipo</div>
 	<div class="pizza-descricao">@item.Descricao</div>
 	<div class="pizza-valor">R$@item.Valor</div>
-</div>
+</div>*@
 
 
