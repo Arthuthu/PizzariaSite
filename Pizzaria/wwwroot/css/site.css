@@ -156,7 +156,7 @@ body {
         border-color: #3598FA;
     }
 
-/* details and beyond */
+/* details page */
 .details-information-div {
     border-style: groove;
     border-radius: 1rem;
@@ -167,6 +167,26 @@ body {
     margin-left: 35%;
     max-width: 30%;
 }
+
+.details-page-voltar-button {
+    text-align: center;
+    margin: 2rem;
+}
+
+/* delete page */
+.delete-page-buttons-div{
+    margin: 2.5rem;
+    text-align: center;
+}
+
+.delete-pizza-label {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1.5rem 0 3rem 0;
+      
+}
+
 /* Footer */
 footer {
     text-align: center;

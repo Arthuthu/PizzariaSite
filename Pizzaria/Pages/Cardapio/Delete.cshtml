@@ -1,4 +1,36 @@
 ﻿@page
+@using PizzariaLibrary.Repositories
+
 @model Pizzaria.Pages.Cardapio.DeleteModel
 @{
+	
 }
+<div class="delete-pizza-label">
+	<p>
+		Tem certeza que deseja deletar essa pizza ?
+	</p>
+</div>
+
+<div class="details-information-div">
+	<div class="pizza-nome">
+		@Model.PizzaItem.Nome
+	</div>
+	<div class="pizza-tipo">
+		@Model.PizzaItem.Descricao
+	</div>
+	<div class="pizza-descricao">
+		@Model.PizzaItem.Tipo
+	</div>
+	<div class="pizza-valor">
+		R$@Model.PizzaItem.Valor
+	</div>
+</div>
+
+<div class="delete-page-buttons-div">
+	<a asp-page="/Cardapio/DeletePizzaAction" asp-route-id="@Model.PizzaItem.Id" class="crud-pizza-button">
+		Sim
+	</a>
+	<a asp-page="/Cardapio/Index" class="crud-pizza-button">
+		Não
+	</a>
+</div>
