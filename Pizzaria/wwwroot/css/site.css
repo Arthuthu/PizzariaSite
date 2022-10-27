@@ -156,6 +156,17 @@ body {
         border-color: #3598FA;
     }
 
+/* details and beyond */
+.details-information-div {
+    border-style: groove;
+    border-radius: 1rem;
+    border-color: black;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    margin-left: 35%;
+    max-width: 30%;
+}
 /* Footer */
 footer {
     margin-top: 90%;
