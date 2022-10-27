@@ -1,37 +1,37 @@
-﻿@page "{Id:int}"
+﻿@page
 @using PizzariaLibrary.Models
 @model Pizzaria.Pages.Cardapio.UpdateModel
 
 @{
-    var pizza = new Pizza();
+
 }
 
 <form method="post">
     <div class="pizza-form">
         <div class="pizza-form-div">
-            <label asp-for="@pizza.Id" class="pizza-form-label"></label>
-            <input type='text' class='pizza-form-textbox' asp-for="@pizza.Id"/>
-            <span asp-validation-for="@pizza.Id"></span>
+            <label asp-for="@Model.PizzaItem.Id" class="pizza-form-label"></label>
+            <input type='text' class='pizza-form-textbox' asp-for="@Model.PizzaItem.Id" readonly/>
+            <span asp-validation-for="@Model.PizzaItem.Id"></span>
         </div>
         <div class="pizza-form-div">
-            <label asp-for="@pizza.Nome" class="pizza-form-label"></label>
-            <input type='text' class='pizza-form-textbox' asp-for="@pizza.Nome" placeholder="Nome da Pizza" />
-            <span asp-validation-for="@pizza.Nome"></span>
+            <label asp-for="@Model.PizzaItem.Nome" class="pizza-form-label"></label>
+            <input type='text' class='pizza-form-textbox' asp-for="@Model.PizzaItem.Nome" placeholder="Nome da Pizza" />
+            <span asp-validation-for="@Model.PizzaItem.Nome"></span>
         </div>
         <div class="pizza-form-div">
-            <label asp-for="@pizza.Descricao" class="pizza-form-label"></label>
-            <input type='text' class='pizza-form-textbox' asp-for="@pizza.Descricao" placeholder="Descrição/Ingredientes" />
-            <span asp-validation-for="@pizza.Descricao"></span>
+            <label asp-for="@Model.PizzaItem.Descricao" class="pizza-form-label"></label>
+            <input type='text' class='pizza-form-textbox' asp-for="@Model.PizzaItem.Descricao" placeholder="Descrição/Ingredientes" />
+            <span asp-validation-for="@Model.PizzaItem.Descricao"></span>
         </div>
         <div class="pizza-form-div">
-            <label asp-for="@pizza.Tipo" class="pizza-form-label"></label>
-            <input type='text' class='pizza-form-textbox' asp-for="@pizza.Tipo" placeholder="Salgada/Doce" />
-            <span asp-validation-for="@pizza.Tipo"></span>
+            <label asp-for="@Model.PizzaItem.Tipo" class="pizza-form-label"></label>
+            <input type='text' class='pizza-form-textbox' asp-for="@Model.PizzaItem.Tipo" placeholder="Salgada/Doce" />
+            <span asp-validation-for="@Model.PizzaItem.Tipo"></span>
         </div>
         <div class="pizza-form-div">
-            <label asp-for="@pizza.Valor" class="pizza-form-label"></label>
-            <input type='text' class='pizza-form-textbox' asp-for="@pizza.Valor" placeholder="R$" />
-            <span asp-validation-for="@pizza.Valor"></span>
+            <label asp-for="@Model.PizzaItem.Valor" class="pizza-form-label"></label>
+            <input type='text' class='pizza-form-textbox' asp-for="@Model.PizzaItem.Valor" placeholder="R$" />
+            <span asp-validation-for="@Model.PizzaItem.Valor"></span>
         </div>
     </div>
 

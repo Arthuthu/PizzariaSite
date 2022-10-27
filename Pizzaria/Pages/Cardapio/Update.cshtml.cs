@@ -15,12 +15,15 @@ namespace Pizzaria.Pages.Cardapio
             _logger = logger;
             _pizzaRepository = pizzaRepository;
         }
+        public Pizza PizzaItem { get; set; }
+
         public void OnGet(int id)
         {
-            _pizzaRepository.Search(id);
+            PizzaItem = _pizzaRepository.Search(id);
+            _logger.LogInformation("Loading the update page");
         }
 
-        public IActionResult OnPost(Pizza pizza)
+        public IActionResult OnPost(Pizza PizzaItem)
         {
 
             if (ModelState.IsValid == false)
@@ -28,7 +31,7 @@ namespace Pizzaria.Pages.Cardapio
                 return Page();
             }
 
-            _pizzaRepository.Update(pizza);
+            _pizzaRepository.Update(PizzaItem);
 
             _logger.LogInformation("The pizza was successfully updated");
 

@@ -12,7 +12,7 @@
 			<div class="pizza-descricao">@item.Descricao</div>
 			<div class="pizza-valor">R$@item.Valor</div>
 			<div class="crud-pizza-button-div">
-				<a asp-page="/Cardapio/Update/@item.Id" class="crud-pizza-button">
+				<a asp-page="/Cardapio/Update" asp-route-id="@item.Id" class="crud-pizza-button">
 					Atualizar
 				</a>
 				<a asp-page="/Cardapio/Details" asp-route-id="@item.Id" class="crud-pizza-button">
