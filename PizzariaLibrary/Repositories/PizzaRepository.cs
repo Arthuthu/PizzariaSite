@@ -13,18 +13,22 @@ namespace PizzariaLibrary.Repositories
         public List<Pizza> Get()
         {
             List<Pizza> pizzas = connection.Query<Pizza>("select * from Pizzas").ToList();
+
             return pizzas;
         }
 
         public Pizza Search(int id)
         {
-            return connection.Query<Pizza>("select * from Pizzas where id=@id", new { id }).SingleOrDefault();
+            Pizza pizza = connection.Query<Pizza>("select * from Pizzas where id=@id", new { id }).SingleOrDefault();
+
+            return pizza;
         }
 
-        public Pizza Create(Pizza pizza)
+        public bool Create(Pizza pizza)
         {
             connection.Execute("insert into Pizzas values (@Nome, @Descricao, @Tipo, @Valor)", pizza);
-            return pizza;
+
+            return true;
         }
 
         public bool Delete(int id)
@@ -33,7 +37,7 @@ namespace PizzariaLibrary.Repositories
             new { pID = id }) == 1;
         }
 
-        public void Update(Pizza pizza)
+        public bool Update(Pizza pizza)
         {
             connection.Execute(
             @"update Pizzas set 
@@ -48,6 +52,8 @@ namespace PizzariaLibrary.Repositories
                 Tipo = pizza.Tipo,
                 Valor = pizza.Valor,
             });
+
+            return true;
         }
     }
 }

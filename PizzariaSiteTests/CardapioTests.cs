@@ -8,25 +8,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace PizzariaSiteTests
 {
     public class CardapioTests
     {
-        private readonly IPizzaRepository _pizzaRepository;
+        private readonly PizzaRepository _sut;
 
-        public CardapioTests(IPizzaRepository pizzaRepository)
+        public CardapioTests()
         {
-            _pizzaRepository = pizzaRepository;
+            _sut = new PizzaRepository();
         }
 
         [Fact]
         public void CardapioCreate_ShouldCreatePizza_WhenAllParametersAreValid()
         {
             //Arrange
-            var pizzaModel = new Pizza
+            var pizza = new Pizza
             {
-                Id = 1,
                 Nome = "Calabresa",
                 Descricao = "Ingredientes",
                 Tipo = "Salgada",
@@ -34,10 +34,11 @@ namespace PizzariaSiteTests
             };
 
             //Act
-            var result = _pizzaRepository.Create(pizzaModel);
+            var result = _sut.Create(pizza);
+
 
             //Assert
-            //result.Should().BeTrue();
+            result.Should().BeTrue();
         }
     }
 }
