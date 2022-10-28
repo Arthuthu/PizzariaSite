@@ -28,7 +28,7 @@ body {
 
 .nav-item a:hover {
     transition: 500ms;
-    color: #2BE7F5;
+    color: #25BC3C;
 }
 
 .logo {
@@ -44,7 +44,7 @@ body {
 
     .logo a:hover {
         transition: 500ms;
-        color: #2BE7F5;
+        color: #25BC3C;
     }
 
 /* Index */
@@ -101,19 +101,63 @@ body {
     margin: 2rem 0 0 0;
     text-align: center;
 }
+
+.criar-nova-pizza-div {
+    text-align: center;
+    margin: 3rem 2rem 2rem 2rem;
+}
+
+.criar-nova-pizza-button {
+    color: #FFF;
+    background-image: linear-gradient(#25BC3C, #188829);
+    border-radius: 1.2rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1.5rem;
+}
+
+.criar-nova-pizza-button:hover {
+    transition: 500ms;
+    color: #303030;
+    background: #FFF;
+    border-style: groove;
+    border-color: #303030;
+}
+
+.index-cardapio-button {
+    color: #FFF;
+    background-image: linear-gradient(#25BC3C, #188829);
+    border-radius: 1.2rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1.5rem;
+}
+
+.index-cardapio-button:hover {
+    transition: 500ms;
+    color: #303030;
+    background: #FFF;
+    border-style: groove;
+    border-color: #303030;
+}
+
+
+
 /* Cardapio */
 #cardapio {
+    justify-content: center;
     margin: 1rem;
-    justify-content: space-evenly;
 }
 
 #pizza-box {
-    border-style: groove;
-    border-radius: 1rem;
-    border-color: black;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: groove;
     padding: 1rem;
     margin: 1rem;
-    text-align: center;
+    width: 70%;
 }
 
 .pizza-nome {
@@ -132,26 +176,26 @@ body {
 }
 
 .pizza-valor {
-    color: red;
+    color: green;
     font-weight: bold;
     font-size: 2rem;
 }
 
 .crud-pizza-button-div {
-    text-align: center;
-    margin: 2rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 3.5rem 0;
 }
 
 .crud-pizza-button {
-    text-align: center;
     color: #FFF;
-    background-image: linear-gradient(#303030, #000000);
+    background-image: linear-gradient(#25BC3C, #188829);
     border-radius: 1.2rem;
     font-size: 1.5rem;
     text-decoration: none;
-    padding: 1.4rem;
     font-weight: bold;
-    margin: 0 0.5rem;
+    margin-left: 1rem;
+    padding: 20px 20px 0 20px;
 }
 
     .crud-pizza-button:hover {
@@ -163,7 +207,7 @@ body {
     }
 
 /* Pizza Form */
-.pizza-form{
+.pizza-form {
     text-align: center;
     margin: 1.5rem;
 }
@@ -210,6 +254,7 @@ body {
     }
 
 /* details page */
+
 .details-information-div {
     border-style: groove;
     border-radius: 1rem;
@@ -221,14 +266,33 @@ body {
     max-width: 30%;
 }
 
-.details-page-voltar-button {
+.details-page-voltar-button-div {
     text-align: center;
     margin: 2rem;
 }
 
+.details-page-voltar-button {
+    color: #FFF;
+    background-image: linear-gradient(#25BC3C, #188829);
+    border-radius: 1.2rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1.5rem;
+}
+
+    .details-page-voltar-button:hover {
+        transition: 500ms;
+        color: #303030;
+        background: #FFF;
+        border-style: groove;
+        border-color: #303030;
+    }
+
 /* delete page */
-.delete-page-buttons-div{
-    margin: 2.5rem;
+
+.delete-page-buttons-div {
+    margin-top: 4rem;
     text-align: center;
 }
 
@@ -240,13 +304,32 @@ body {
       
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
+.delete-page-buttons {
     color: #FFF;
-    background-image: linear-gradient(#303030, #000000);
+    background-image: linear-gradient(#25BC3C, #188829);
+    border-radius: 1.2rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    margin: 1rem;
 }
+
+    .delete-page-buttons:hover {
+        transition: 500ms;
+        color: #303030;
+        background: #FFF;
+        border-style: groove;
+        border-color: #303030;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 2rem;
+        color: #FFF;
+        background-image: linear-gradient(#303030, #000000);
+    }
 
 .footer-descricao-div {
     justify-content: center;
