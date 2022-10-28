@@ -9,8 +9,8 @@
 <form method="post">
     <div class="pizza-form">
         <div class="pizza-form-div">
-            <label asp-for="@Model.PizzaItem.Id" class="pizza-form-label"></label>
-            <input type='text' class='pizza-form-textbox' asp-for="@Model.PizzaItem.Id" readonly/>
+            <label asp-for="@Model.PizzaItem.Id" class="pizza-form-label" hidden></label>
+            <input type='text' class='pizza-form-textbox' asp-for="@Model.PizzaItem.Id" hidden/>
             <span asp-validation-for="@Model.PizzaItem.Id"></span>
         </div>
         <div class="pizza-form-div">
@@ -35,9 +35,17 @@
         </div>
     </div>
 
-    <div class="salvar-button-div">
-        <button class="salvar-button" type="submit"> Salvar </button>
+    <div class="update-buttons-div">
+        <div class="salvar-button-div">
+            <button class="salvar-button" type="submit"> Salvar </button>
+        </div>
+        <div class="update-page-voltar-button-div">
+	        <a asp-page="/Cardapio/Index" class="update-page-voltar-button">
+		        Voltar
+	        </a>
+        </div>
     </div>
+
 </form>
 
 @{

@@ -256,9 +256,7 @@ body {
 /* details page */
 
 .details-information-div {
-    border-style: groove;
-    border-radius: 1rem;
-    border-color: black;
+    border-bottom: groove;
     padding: 1rem;
     margin: 1rem;
     text-align: center;
@@ -289,8 +287,35 @@ body {
         border-color: #303030;
     }
 
-/* delete page */
+/* update page */
+.update-buttons-div {
+    justify-content: center;
+    display: flex;
+}
 
+.update-page-voltar-button-div{
+    margin: 1.1rem;
+}
+
+.update-page-voltar-button {
+    color: #FFF;
+    background-image: linear-gradient(#25BC3C, #188829);
+    border-radius: 1.2rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1.25rem 1.4rem;
+}
+
+    .update-page-voltar-button:hover {
+        transition: 500ms;
+        color: #303030;
+        background: #FFF;
+        border-style: groove;
+        border-color: #303030;
+    }
+
+/* delete page */
 .delete-page-buttons-div {
     margin-top: 4rem;
     text-align: center;
@@ -343,4 +368,84 @@ body {
 .icone-instagram {
     font-size: 2rem;
     margin: 0.25rem 0 0 2rem;
+}
+
+@media(max-width: 800px){
+
+    /* navbar */
+    .logo a{
+        margin: 0 0 0 1.3rem;
+    }
+
+    .nav-links{
+        margin: 0 0 0 2rem;
+    }
+
+    /* index */
+    .descricao-div {
+        flex-direction: column;
+    }
+
+    .descricao-texto-div {
+        max-width: 100%;
+    }
+
+    .descricao-texto-titulo {
+        text-align: center;
+        margin: 1rem 0.4rem 1.5rem 1.5rem;
+    }
+
+    .descricao-div p {
+        text-align: center;
+        margin: 0.4rem 0.4rem 1.5rem 1.5rem;
+    }
+
+    /* cardapio */
+
+    #pizza-box{
+        flex-direction: column;
+    }
+
+    .pizza-nome {
+        text-align: center;
+    }
+
+    .pizza-tipo {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .pizza-descricao {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .pizza-valor {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .crud-pizza-button-div {
+        flex-direction: column;
+    }
+
+    .crud-pizza-button {
+        text-align: center;
+        margin: 1rem;
+        padding: 1rem 1rem;
+    }
+
+    /* details */
+    .details-information-div {
+        margin-left: 25%;
+        max-width: 50%;
+    }
+
+    /* footer */
+
+    .icone-instagram {
+        margin: 1rem 0 0 0;
+    }
+
+
 }
