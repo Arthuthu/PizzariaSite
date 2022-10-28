@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzariaLibrary", "Pizzaria
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PizzariaDatabase", "PizzariaDatabase\PizzariaDatabase.sqlproj", "{15559A8A-9D42-48CA-8FE2-BE90E53E5461}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzariaSiteTests", "PizzariaSiteTests\PizzariaSiteTests.csproj", "{C58DF2E0-59EA-45A4-AE2A-6E43B58EE717}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{15559A8A-9D42-48CA-8FE2-BE90E53E5461}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15559A8A-9D42-48CA-8FE2-BE90E53E5461}.Release|Any CPU.Build.0 = Release|Any CPU
 		{15559A8A-9D42-48CA-8FE2-BE90E53E5461}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C58DF2E0-59EA-45A4-AE2A-6E43B58EE717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58DF2E0-59EA-45A4-AE2A-6E43B58EE717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58DF2E0-59EA-45A4-AE2A-6E43B58EE717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58DF2E0-59EA-45A4-AE2A-6E43B58EE717}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
