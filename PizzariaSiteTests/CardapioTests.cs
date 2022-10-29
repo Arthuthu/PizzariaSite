@@ -40,5 +40,24 @@ namespace PizzariaSiteTests
             //Assert
             result.Should().BeTrue();
         }
+
+        [Fact]
+        public void CardapioUpdate_ShouldCreatePizza_WhenAllParametersAreValid()
+        {
+            //Arrange
+            var pizza = new Pizza
+            {
+                Nome = "Calabresa",
+                Descricao = "Ingredientes",
+                Tipo = "Salgada",
+                Valor = 23
+            };
+
+            //Act
+            var result = _sut.Update(pizza);
+
+            //Assert
+            result.Should().BeTrue();
+        }
     }
 }
