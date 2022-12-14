@@ -1,17 +1,25 @@
 ﻿using Dapper;
+using Microsoft.Extensions.Configuration;
 using PizzariaLibrary.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace PizzariaLibrary.Repositories
 {
-    public class PizzaRepository : Connection, IPizzaRepository
+    public class PizzaRepository : IPizzaRepository
     {
+        private readonly IConfiguration _config;
+        private const string pizzariaDatabase = "Pizzaria";
+
+        public PizzaRepository(IConfiguration config)
+        {
+            _config = config;
+        }
+
         public List<Pizza> Get()
         {
+            using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
+
             List<Pizza> pizzas = connection.Query<Pizza>("select * from Pizzas").ToList();
 
             return pizzas;
@@ -19,6 +27,8 @@ namespace PizzariaLibrary.Repositories
 
         public Pizza Search(int id)
         {
+            using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
+
             Pizza pizza = connection.Query<Pizza>("select * from Pizzas where id=@id", new { id }).SingleOrDefault();
 
             return pizza;
@@ -26,6 +36,8 @@ namespace PizzariaLibrary.Repositories
 
         public bool Create(Pizza pizza)
         {
+            using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
+
             connection.Execute("insert into Pizzas values (@Nome, @Descricao, @Tipo, @Valor)", pizza);
 
             return true;
@@ -33,12 +45,16 @@ namespace PizzariaLibrary.Repositories
 
         public bool Delete(int id)
         {
+            using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
+
             return connection.Execute("delete from Pizzas where id=@pID",
             new { pID = id }) == 1;
         }
 
         public bool Update(Pizza pizza)
         {
+            using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
+
             connection.Execute(
             @"update Pizzas set 
             Nome = @Nome,
