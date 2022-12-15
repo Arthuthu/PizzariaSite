@@ -1,7 +1,11 @@
 ﻿@page
 @using PizzariaLibrary.Repositories
 @inject IPizzaRepository pizza
-@model             CardapioModel
+@model CardapioModel
+
+@{
+	var pizzaList = pizza.Get();
+}
 
 <div class="criar-nova-pizza-div">
 	<a asp-page="/Cardapio/Create" class="criar-nova-pizza-button">
@@ -10,24 +14,24 @@
 </div>
 
 <div class="row" id="cardapio">
-	@foreach (var item in pizza.Get())
-	{
+    @foreach (var pizza in await pizzaList)
+    {
 		<div class="col-md-12" id="pizza-box">
 			<div>
-				<div class="pizza-nome">@item.Nome</div>
-				<div class="pizza-tipo">@item.Tipo</div>
-				<div class="pizza-descricao">@item.Descricao</div>
-				<div class="pizza-valor">R$@item.Valor</div>
+				<div class="pizza-nome">@pizza.Nome</div>
+				<div class="pizza-tipo">@pizza.Tipo</div>
+				<div class="pizza-descricao">@pizza.Descricao</div>
+				<div class="pizza-valor">R$@pizza.Valor</div>
 			</div>
 
 			<div class="crud-pizza-button-div">
-				<a asp-page="/Cardapio/Update" asp-route-id="@item.Id" class="crud-pizza-button">
+				<a asp-page="/Cardapio/Update" asp-route-id="@pizza.Id" class="crud-pizza-button">
 					Atualizar
 				</a>
-				<a asp-page="/Cardapio/Details" asp-route-id="@item.Id" class="crud-pizza-button">
+				<a asp-page="/Cardapio/Details" asp-route-id="@pizza.Id" class="crud-pizza-button">
 					Detalhes
 				</a>
-				<a asp-page="/Cardapio/Delete" asp-route-id="@item.Id" class="crud-pizza-button">
+				<a asp-page="/Cardapio/Delete" asp-route-id="@pizza.Id" class="crud-pizza-button">
 					Deletar
 				</a>
 			</div>
@@ -35,7 +39,4 @@
 	}
 </div>
 
-@{
-	
-}
 

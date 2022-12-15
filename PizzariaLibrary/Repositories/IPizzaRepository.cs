@@ -6,7 +6,7 @@ namespace PizzariaLibrary.Repositories
     {
         bool Create(Pizza pizza);
         bool Delete(int id);
-        List<Pizza> Get();
+        Task<List<Pizza>> Get();
         Pizza Search(int id);
         bool Update(Pizza pizza);
     }

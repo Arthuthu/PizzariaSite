@@ -16,13 +16,13 @@ namespace PizzariaLibrary.Repositories
             _config = config;
         }
 
-        public List<Pizza> Get()
+        public async Task<List<Pizza>> Get()
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 
-            List<Pizza> pizzas = connection.Query<Pizza>("select * from Pizzas").ToList();
+            var results = await connection.QueryAsync<Pizza>("select * from Pizzas");
 
-            return pizzas;
+            return results.ToList();
         }
 
         public Pizza Search(int id)
