@@ -34,11 +34,11 @@ namespace PizzariaLibrary.Repositories
             return pizza;
         }
 
-        public bool Create(Pizza pizza)
+        public async Task<bool> Create(Pizza pizza)
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 
-            connection.Execute("insert into Pizzas values (@Nome, @Descricao, @Tipo, @Valor)", pizza);
+            await connection.ExecuteAsync("insert into Pizzas values (@Nome, @Descricao, @Tipo, @Valor)", pizza);
 
             return true;
         }

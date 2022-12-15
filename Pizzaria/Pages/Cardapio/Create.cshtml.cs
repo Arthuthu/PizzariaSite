@@ -20,14 +20,14 @@ namespace Pizzaria.Pages.Cardapio
         {
         }
 
-        public IActionResult OnPost(Pizza pizza)
+        public async Task<IActionResult> OnPost(Pizza pizza)
         {
             if (ModelState.IsValid == false)
             {
                 return Page();
             }
 
-            _pizzaRepository.Create(pizza);
+            await _pizzaRepository.Create(pizza);
 
             _logger.LogInformation("The pizza was successfully created");
 
