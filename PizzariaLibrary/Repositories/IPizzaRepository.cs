@@ -5,9 +5,9 @@ namespace PizzariaLibrary.Repositories
     public interface IPizzaRepository
     {
         Task<bool> Create(Pizza pizza);
-        bool Delete(int id);
+        Task<bool> Delete(int id);
         Task<List<Pizza>> Get();
         Pizza Search(int id);
-        bool Update(Pizza pizza);
+        Task<bool> Update(Pizza pizza);
     }
 }

@@ -43,19 +43,19 @@ namespace PizzariaLibrary.Repositories
             return true;
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 
-            return connection.Execute("delete from Pizzas where id=@pID",
+            return await connection.ExecuteAsync("delete from Pizzas where id=@pID",
             new { pID = id }) == 1;
         }
 
-        public bool Update(Pizza pizza)
+        public async Task<bool> Update(Pizza pizza)
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 
-            connection.Execute(
+            await connection.ExecuteAsync(
             @"update Pizzas set 
             Nome = @Nome,
             Descricao = @Descricao,

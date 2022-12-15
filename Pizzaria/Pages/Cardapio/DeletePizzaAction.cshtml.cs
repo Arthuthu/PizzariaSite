@@ -17,9 +17,9 @@ namespace Pizzaria.Pages.Cardapio
         }
         public Pizza PizzaItem { get; set; }
 
-        public IActionResult OnGet(int id)
+        public async Task<IActionResult> OnGet(int id)
         {
-            _pizzaRepository.Delete(id);
+            await _pizzaRepository.Delete(id);
             _logger.LogInformation("Pizza was successfully deleted");
 
             return RedirectToPage("./Index");
