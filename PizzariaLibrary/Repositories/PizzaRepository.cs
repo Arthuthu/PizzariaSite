@@ -19,32 +19,39 @@ namespace PizzariaLibrary.Repositories
 			_memoryCache = memoryCache;
 		}
 
-        public async Task<List<PizzaModel>> Get()
+        public async Task<List<PizzaModel>> GetAllPizzas()
         {
-            using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
-
-            var results = await connection.QueryAsync<PizzaModel>("select * from Pizzas");
-
-            return results.ToList();
-        }
-
-        public PizzaModel Search(int id)
-        {
-            var output = _memoryCache.Get<PizzaModel>("pizza");
+            var output = _memoryCache.Get<IEnumerable<PizzaModel>>("pizzas");
 
             if (output is null)
             {
 				using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 
-                output = connection.Query<PizzaModel>("select * from Pizzas where id=@id", new { id }).SingleOrDefault();
+				output = await connection.QueryAsync<PizzaModel>("select * from Pizzas");
+
+                _memoryCache.Set("pizzas", output, TimeSpan.FromHours(1));
+			}
+
+            return output.ToList();
+        }
+
+        public PizzaModel GetPizzaById(int id)
+        {
+            var output = _memoryCache.Get<IEnumerable<PizzaModel>>("pizza");
+
+            if (output is null)
+            {
+				using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
+
+                output =  connection.Query<PizzaModel>("select * from Pizzas where id=@id", new { id });
 
                 _memoryCache.Set("pizza", output, TimeSpan.FromHours(1));
 			}
 
-            return output;
+            return output.FirstOrDefault();
         }
 
-        public async Task<bool> Create(PizzaModel pizza)
+        public async Task<bool> CreatePizza(PizzaModel pizza)
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 
@@ -53,7 +60,7 @@ namespace PizzariaLibrary.Repositories
             return true;
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task<bool> DeletePizza(int id)
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 
@@ -61,7 +68,7 @@ namespace PizzariaLibrary.Repositories
             new { pID = id }) == 1;
         }
 
-        public async Task<bool> Update(PizzaModel pizza)
+        public async Task<bool> UpdatePizza(PizzaModel pizza)
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 

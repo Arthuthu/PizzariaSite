@@ -19,7 +19,7 @@ namespace Pizzaria.Pages.Cardapio
         }
         public void OnGet(int id)
         {
-            PizzaItem = _pizzaRepository.Search(id);
+            PizzaItem = _pizzaRepository.GetPizzaById(id);
             _logger.LogInformation("Loading the details page");
         }
     }
