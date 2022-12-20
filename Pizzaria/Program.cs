@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PizzariaLibrary.Data;
+using PizzariaLibrary.DbAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IPizzaRepository, PizzaRepository>();
 builder.Services.AddSingleton<IPizzaData, PizzaData>();
+builder.Services.AddSingleton<ISqlDataAccess, SqlDataAccess>();
 
 
 var app = builder.Build();
