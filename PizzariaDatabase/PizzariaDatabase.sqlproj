@@ -59,9 +59,15 @@
     <Folder Include="db" />
     <Folder Include="db\Tables" />
     <Folder Include="PublishLocations\" />
+    <Folder Include="db\StoredProcedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="db\Tables\Pizzas.sql" />
+    <Build Include="db\StoredProcedures\spPizza_Get.sql" />
+    <Build Include="db\StoredProcedures\spPizza_Delete.sql" />
+    <Build Include="db\StoredProcedures\spPizza_GetAll.sql" />
+    <Build Include="db\StoredProcedures\spPizza_Create.sql" />
+    <Build Include="db\StoredProcedures\spPizza_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\PizzariaDatabase.publish.xml" />
