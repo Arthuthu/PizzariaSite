@@ -16,25 +16,25 @@ namespace PizzariaLibrary.Repositories
             _config = config;
         }
 
-        public async Task<List<Pizza>> Get()
+        public async Task<List<PizzaModel>> Get()
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 
-            var results = await connection.QueryAsync<Pizza>("select * from Pizzas");
+            var results = await connection.QueryAsync<PizzaModel>("select * from Pizzas");
 
             return results.ToList();
         }
 
-        public Pizza Search(int id)
+        public PizzaModel Search(int id)
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 
-            Pizza pizza = connection.Query<Pizza>("select * from Pizzas where id=@id", new { id }).SingleOrDefault();
+            PizzaModel pizza = connection.Query<PizzaModel>("select * from Pizzas where id=@id", new { id }).SingleOrDefault();
 
             return pizza;
         }
 
-        public async Task<bool> Create(Pizza pizza)
+        public async Task<bool> Create(PizzaModel pizza)
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 
@@ -51,7 +51,7 @@ namespace PizzariaLibrary.Repositories
             new { pID = id }) == 1;
         }
 
-        public async Task<bool> Update(Pizza pizza)
+        public async Task<bool> Update(PizzaModel pizza)
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 

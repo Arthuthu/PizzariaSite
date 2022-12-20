@@ -10,7 +10,7 @@ namespace Pizzaria.Pages.Cardapio
         private readonly ILogger<DetailsModel> _logger;
         private readonly IPizzaRepository _pizzaRepository;
 
-        public Pizza PizzaItem{ get; set; }
+        public PizzaModel PizzaItem{ get; set; }
 
         public DetailsModel(ILogger<DetailsModel> logger, IPizzaRepository pizzaRepository)
         {

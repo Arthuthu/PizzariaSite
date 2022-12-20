@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PizzariaLibrary.Models
 {
-    public class Pizza
+    public class PizzaModel
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "É necessário preencher o campo do nome")]

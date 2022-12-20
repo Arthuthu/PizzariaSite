@@ -20,7 +20,7 @@ namespace Pizzaria.Pages.Cardapio
         {
         }
 
-        public async Task<IActionResult> OnPost(Pizza pizza)
+        public async Task<IActionResult> OnPost(PizzaModel pizza)
         {
             if (ModelState.IsValid == false)
             {

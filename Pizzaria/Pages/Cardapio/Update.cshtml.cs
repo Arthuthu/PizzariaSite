@@ -15,7 +15,7 @@ namespace Pizzaria.Pages.Cardapio
             _logger = logger;
             _pizzaRepository = pizzaRepository;
         }
-        public Pizza PizzaItem { get; set; }
+        public PizzaModel PizzaItem { get; set; }
 
         public void OnGet(int id)
         {
@@ -23,7 +23,7 @@ namespace Pizzaria.Pages.Cardapio
             _logger.LogInformation("Loading the update page");
         }
 
-        public async Task<IActionResult> OnPost(Pizza PizzaItem)
+        public async Task<IActionResult> OnPost(PizzaModel PizzaItem)
         {
 
             if (ModelState.IsValid == false)

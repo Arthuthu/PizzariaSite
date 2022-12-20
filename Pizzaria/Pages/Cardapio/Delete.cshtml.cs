@@ -16,7 +16,7 @@ namespace Pizzaria.Pages.Cardapio
             _pizzaRepository = pizzaRepository;
         }
 
-        public Pizza PizzaItem { get; set; }
+        public PizzaModel PizzaItem { get; set; }
 
         public void OnGet(int id)
         {

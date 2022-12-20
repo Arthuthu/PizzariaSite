@@ -15,7 +15,7 @@ namespace Pizzaria.Pages.Cardapio
             _logger = logger;
             _pizzaRepository = pizzaRepository;
         }
-        public Pizza PizzaItem { get; set; }
+        public PizzaModel PizzaItem { get; set; }
 
         public async Task<IActionResult> OnGet(int id)
         {

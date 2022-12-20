@@ -4,10 +4,10 @@ namespace PizzariaLibrary.Repositories
 {
     public interface IPizzaRepository
     {
-        Task<bool> Create(Pizza pizza);
+        Task<bool> Create(PizzaModel pizza);
         Task<bool> Delete(int id);
-        Task<List<Pizza>> Get();
-        Pizza Search(int id);
-        Task<bool> Update(Pizza pizza);
+        Task<List<PizzaModel>> Get();
+        PizzaModel Search(int id);
+        Task<bool> Update(PizzaModel pizza);
     }
 }
