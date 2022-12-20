@@ -1,12 +1,14 @@
 ﻿using PizzariaLibrary.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using PizzariaLibrary.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IPizzaRepository, PizzaRepository>();
+builder.Services.AddSingleton<IPizzaData, PizzaData>();
 
 
 var app = builder.Build();

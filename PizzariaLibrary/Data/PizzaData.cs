@@ -3,11 +3,11 @@ using PizzariaLibrary.Models;
 
 namespace PizzariaLibrary.Data
 {
-	public class PizzData : IPizzData
+	public class PizzaData : IPizzaData
 	{
 		private readonly ISqlDataAccess _db;
 
-		public PizzData(ISqlDataAccess db)
+		public PizzaData(ISqlDataAccess db)
 		{
 			_db = db;
 		}
