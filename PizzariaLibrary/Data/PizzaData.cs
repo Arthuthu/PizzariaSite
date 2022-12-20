@@ -23,7 +23,7 @@ namespace PizzariaLibrary.Data
 			{
 				output = _db.LoadData<PizzaModel, dynamic>("dbo.spPizza_GetAll", new { });
 
-				_memoryCache.Set("pizzas", output, TimeSpan.FromMinutes(1));
+				_memoryCache.Set("pizzas", output, TimeSpan.FromHours(1));
 			}
 
 			return output;
@@ -31,9 +31,14 @@ namespace PizzariaLibrary.Data
 
 		public async Task<PizzaModel?> GetPizzaById(int id)
 		{
-			var results = await _db.LoadData<PizzaModel, dynamic>("dbo.spPizza_Get", new { Id = id });
+			var output = _memoryCache.Get<IEnumerable<PizzaModel>>("pizza");
 
-			return results.FirstOrDefault();
+			if (output is null)
+			{
+				output = await _db.LoadData<PizzaModel, dynamic>("dbo.spPizza_Get", new { Id = id });
+			}
+
+			return output.FirstOrDefault();
 		}
 
 		public Task InsertPizza(PizzaModel pizza)

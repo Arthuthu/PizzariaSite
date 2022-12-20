@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using PizzariaLibrary.Models;
 using System.Data;
@@ -9,12 +10,14 @@ namespace PizzariaLibrary.Repositories
     public class PizzaRepository : IPizzaRepository
     {
         private readonly IConfiguration _config;
-        private const string pizzariaDatabase = "Pizzaria";
+		private readonly IMemoryCache _memoryCache;
+		private const string pizzariaDatabase = "Pizzaria";
 
-        public PizzaRepository(IConfiguration config)
+        public PizzaRepository(IConfiguration config, IMemoryCache memoryCache)
         {
             _config = config;
-        }
+			_memoryCache = memoryCache;
+		}
 
         public async Task<List<PizzaModel>> Get()
         {
@@ -27,11 +30,18 @@ namespace PizzariaLibrary.Repositories
 
         public PizzaModel Search(int id)
         {
-            using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
+            var output = _memoryCache.Get<PizzaModel>("pizza");
 
-            PizzaModel pizza = connection.Query<PizzaModel>("select * from Pizzas where id=@id", new { id }).SingleOrDefault();
+            if (output is null)
+            {
+				using IDbConnection connection = new SqlConnection(_config.GetConnectionString(pizzariaDatabase));
 
-            return pizza;
+                output = connection.Query<PizzaModel>("select * from Pizzas where id=@id", new { id }).SingleOrDefault();
+
+                _memoryCache.Set("pizza", output, TimeSpan.FromHours(1));
+			}
+
+            return output;
         }
 
         public async Task<bool> Create(PizzaModel pizza)
