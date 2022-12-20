@@ -1,4 +1,5 @@
-﻿using PizzariaLibrary.DbAccess;
+﻿using Microsoft.Extensions.Caching.Memory;
+using PizzariaLibrary.DbAccess;
 using PizzariaLibrary.Models;
 
 namespace PizzariaLibrary.Data
@@ -6,15 +7,26 @@ namespace PizzariaLibrary.Data
 	public class PizzaData : IPizzaData
 	{
 		private readonly ISqlDataAccess _db;
+		private readonly IMemoryCache _memoryCache;
 
-		public PizzaData(ISqlDataAccess db)
+		public PizzaData(ISqlDataAccess db, IMemoryCache memoryCache)
 		{
 			_db = db;
+			_memoryCache = memoryCache;
 		}
 
 		public Task<IEnumerable<PizzaModel>> GetAllPizzas()
 		{
-			return _db.LoadData<PizzaModel, dynamic>("dbo.spPizza_GetAll", new { });
+			var output = _memoryCache.Get<Task<IEnumerable<PizzaModel>>>("pizzas");
+
+			if (output is null)
+			{
+				output = _db.LoadData<PizzaModel, dynamic>("dbo.spPizza_GetAll", new { });
+
+				_memoryCache.Set("pizzas", output, TimeSpan.FromMinutes(1));
+			}
+
+			return output;
 		}
 
 		public async Task<PizzaModel?> GetPizzaById(int id)
